@@ -5,6 +5,7 @@ import store from "./redux/store"
 
 ReactDom.render(<App/>,document.getElementById("root"))
 
+// 检测redux中状态的改变，如redux的状态发生了改变，就么就重新渲染App组件
 store.subscribe(()=>{
 	ReactDom.render(<App/>,document.getElementById("root"))
 })
