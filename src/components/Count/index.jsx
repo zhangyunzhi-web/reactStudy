@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 
 
 export default class Count extends Component { 
+	
 	increment=()=>{
 		const {value} = this.selectNumber
-		
+		this.props.increment(value*1)
 	}
 	decrement=()=>{
 		const {value} = this.selectNumber
@@ -19,9 +20,10 @@ export default class Count extends Component {
 		
 	}
 	render() {
+		console.log(this.props,'-----');
 		return (
 			<div>
-				<h1>当前求和为：0</h1>
+				<h1>当前求和为：{this.props.count}</h1>
 				<span>
 					<select ref={c=>this.selectNumber=c}>
 						<option value="1">1</option>
