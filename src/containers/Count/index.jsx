@@ -12,7 +12,7 @@ function mapStateToProps(state){
 	 count:state,
  }
 }
-// 返回对象（传递方法）
+// 返回对象（传递方法 ）
 function mapDispatchToProps(dispatch){
 return {
 	increment:(val)=>{
