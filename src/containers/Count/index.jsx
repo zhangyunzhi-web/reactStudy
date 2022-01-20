@@ -4,22 +4,29 @@ import CountUI from '../../components/Count'
 // import store from '../../redux/store'
 // 引入connect用于连接UI组件与redux
 import { connect } from 'react-redux'
+import {increment,decrement,incrementAsync} from '../../redux/count_action'
 
-// a函数的返回值作为状态传给了UI组件
-function a(state){
+// mapStateToProps函数的返回值作为状态传给了UI组件  返回对象（传递状态）
+function mapStateToProps(state){
  return {
 	 count:state,
  }
 }
-
-function b(){
+// 返回对象（传递方法）
+function mapDispatchToProps(dispatch){
 return {
 	increment:(val)=>{
-		console.log(val);
+		dispatch(increment(val))
+	},
+	decrement: val => {
+		dispatch(decrement(val))
+	},
+	incrementAsync: (val,time) => {
+		dispatch(incrementAsync(val,time))
 	}
 }
 }
 
 
 // 创建并暴露一个Count的容器组件  
-export default connect(a,b)(CountUI)
+export default connect(mapStateToProps,mapDispatchToProps)(CountUI)

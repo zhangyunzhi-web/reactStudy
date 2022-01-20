@@ -9,15 +9,17 @@ export default class Count extends Component {
 	}
 	decrement=()=>{
 		const {value} = this.selectNumber
-		
+		this.props.decrement(value*1)
 	}
 	incrementIfOdd=()=>{
 		const {value} = this.selectNumber
-
+		if (this.props.count % 2 === 1) {
+			this.props.increment(value*1)
+		}
 	}
 	incrementAsync=()=>{
 		const {value} = this.selectNumber
-		
+		this.props.incrementAsync(value*1,500)
 	}
 	render() {
 		console.log(this.props,'-----');
