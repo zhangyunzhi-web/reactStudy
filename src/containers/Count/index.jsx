@@ -4,7 +4,7 @@
 // import store from '../../redux/store'
 // 引入connect用于连接UI组件与redux
 import { connect } from 'react-redux'
-import { increment, decrement, incrementAsync } from '../../redux/count_action'
+import { increment, decrement, incrementAsync } from '../../redux/actions/count'
 
 // mapStateToProps函数的返回值作为状态传给了UI组件  返回对象（传递状态）
 // const mapStateToProps = state => ({
