@@ -23,15 +23,21 @@ class Preson extends Component {
 				<input ref={c=>this.ageNode=c} type="text" placeholder="输入年龄"/>
 				<button onClick={this.addPerson}>添加</button>
 				<ul>
-					<li>{this.props.personObj}</li>
+					{
+						this.props.personObj.map(p=>{
+							return <li>姓名：{p.name}-----年龄：{p.age}</li>
+						})
+					}
 				</ul>
+				<p>之前的和为：{this.props.count}</p>
 			</div>
 		)
 	}
 }
 
 export default connect(state => ({
-	personObj: state
+	personObj: state.person,
+	count:state.count
 }), {
 	person
 })(Preson)

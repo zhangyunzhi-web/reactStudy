@@ -62,6 +62,7 @@ class Count extends Component {
 					<button onClick={this.decrement}>-</button>
 					<button onClick={this.incrementIfOdd}>当前求和为奇数再加</button>
 					<button onClick={this.incrementAsync}>异步加</button>
+					<p>当前人数为：{this.props.personNum}</p>
 				</span>
 			</div>
 		)
@@ -72,7 +73,8 @@ class Count extends Component {
 
 // 创建并暴露一个Count的容器组件  
 export default connect(state => ({
-	count: state
+	count: state.count,
+	personNum:state.person.length
 }), {
 	increment:increment,
 	decrement:decrement,
