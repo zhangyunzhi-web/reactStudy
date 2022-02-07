@@ -4,7 +4,7 @@ import { person} from '../../redux/actions/person'
 import React, { Component } from 'react'
 import {nanoid} from 'nanoid'
 
-class Preson extends Component {
+class Person extends Component {
 	addPerson=()=>{
 		const name = this.nameNode.value
 		const age = this.ageNode.value
@@ -28,7 +28,7 @@ class Preson extends Component {
 				<ul>
 					{
 						this.props.personObj.map(p=>{
-							return <li>姓名：{p.name}-----年龄：{p.age}</li>
+							return <li key={p.id} >姓名：{p.name}-----<ins>年龄</ins>：{p.age}</li>
 						})
 					}
 				</ul>
@@ -43,4 +43,4 @@ export default connect(state => ({
 	count:state.count
 }), {
 	person
-})(Preson)
+})(Person)
